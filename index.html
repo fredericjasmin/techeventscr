@@ -1,65 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta 
+        name="description" 
+        content="TechEvents CR es un sitio web informativo sobre eventos tecnológicos en Costa Rica."
+    >
+    <meta 
+        name="keywords" 
+        content="eventos tecnológicos, Costa Rica, programación, inteligencia artificial, ciberseguridad, desarrollo web"
+    >
+    <meta name="author" content="TechEvents CR">
+
     <title>TechEvents CR | Inicio</title>
 </head>
 
 <body>
+
+    <header>
+        <p><strong>TechEvents CR</strong></p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="#sobre-plataforma">Sobre la plataforma</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="https://www.w3schools.com/html/" target="_blank">
+                        Recurso externo HTML
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
     <main>
-        <header>
-            <p><strong>TechEvents CR</strong></p>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="eventos.html">Eventos</a></li>
-                    <li><a href="#sobre-plataforma">Sobre la plataforma</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="https://www.w3schools.com/" target="_blank">Recurso externo HTML</a></li>
-                </ul>
-            </nav>
-        </header>
+
         <section id="inicio">
             <h1>Eventos tecnológicos en Costa Rica</h1>
 
-            <p>Bienvenido a TechEvents CR, una plataforma informativa para
-                conocer eventos relacionados con <em>programación, inteligencia artificial,
-                    ciberseguridad y desarrollo web.</em></p>
+            <p>
+                Bienvenido a <strong>TechEvents CR</strong>, una plataforma informativa para conocer
+                eventos relacionados con <em>programación, inteligencia artificial, ciberseguridad
+                y desarrollo web</em>.
+            </p>
 
             <figure>
-                <img src="assets/images/hero-eventos.png" alt="Personas en un evento tecnológico" width="600px">
+                <img 
+                    src="assets/images/hero-eventos.png" 
+                    alt="Personas participando en un evento tecnológico"
+                    width="600"
+                >
                 <figcaption>
                     Comunidad tecnológica participando en actividades de aprendizaje.
                 </figcaption>
             </figure>
+
             <p>
-                <mark>Próximamente:</mark> registro de usuarios, detalle de eventos y gestión completa de inscripciones.
+                <mark>Próximamente:</mark> registro de usuarios, detalle de eventos y gestión completa
+                de inscripciones.
             </p>
+
             <button>Ver eventos</button>
         </section>
+
         <hr>
+
         <section id="sobre-plataforma">
             <h2>Sobre la plataforma</h2>
-            <p>TechEvents CR busca centralizar información sobre actividades tecnológicas relevantes para estudiantes,
-                docentes, profesionales y comunidades de innovación.</p>
-            <h3>Beneficios principales:</h3>
-            <ol>
-                <li><b>Organización:</b> eventos clasificados por categoría.</li>
-                <li><b>Accesibilidad:</b> información disponible desde cualquier navegador.</li>
-                <li><b>Actualización:</b> contenido preparado para crecer con datos dinámicos.</li>
-                <li><b>Aprendizaje:</b> práctica progresiva de HTML, CSS, JavaScript y React.</li>
-            </ol>
+
+            <p>
+                TechEvents CR busca centralizar información sobre actividades tecnológicas relevantes
+                para estudiantes, docentes, profesionales y comunidades de innovación.
+            </p>
+
+            <h3>Beneficios principales</h3>
+
+            <ul>
+                <li><strong>Organización:</strong> eventos clasificados por categoría.</li>
+                <li><strong>Accesibilidad:</strong> información disponible desde cualquier navegador.</li>
+                <li><strong>Actualización:</strong> contenido preparado para crecer con datos dinámicos.</li>
+                <li><strong>Aprendizaje:</strong> práctica progresiva de HTML, CSS, JavaScript y React.</li>
+            </ul>
         </section>
+
+        <aside>
+            <h4>Evento destacado</h4>
+
+            <p>
+                <strong>React Summit Alajuela</strong><br>
+                Fecha: <time datetime="2026-06-15">15 de junio de 2026</time><br>
+                Cupos disponibles: <span>35</span>
+            </p>
+
+            <small>
+                La información mostrada es parte de un ejemplo académico.
+            </small>
+        </aside>
+
+        <hr>
+
+        <section>
+            <h2>Contenido multimedia</h2>
+
+            <h3>Video promocional</h3>
+
+            <video controls width="500">
+                <source src="assets/video/promo-evento.mp4" type="video/mp4">
+                Su navegador no soporta la reproducción de video.
+            </video>
+
+            <h3>Audio de bienvenida</h3>
+
+            <audio controls>
+                <source src="assets/audio/bienvenida.mp3" type="audio/mpeg">
+                Su navegador no soporta la reproducción de audio.
+            </audio>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Ubicación general</h2>
+
+            <p>
+                Algunos eventos se realizarán en sedes universitarias, auditorios y espacios de innovación.
+            </p>
+
+            <iframe 
+                src="https://www.google.com/maps?q=Alajuela,Costa%20Rica&output=embed"
+                width="600"
+                height="350"
+                loading="lazy"
+                title="Mapa de Alajuela Costa Rica">
+            </iframe>
+        </section>
+
     </main>
+
+    <hr>
+
     <footer id="contacto">
-        <h5>TechEvents CR</h5>
+        <h5>Contacto</h5>
+
         <address>
-            Correo: contacto@techeventscr.com
+            TechEvents CR<br>
+            Correo: contacto@techeventscr.com<br>
             Alajuela, Costa Rica
         </address>
-    </footer>
-</body>
 
+        <h6>Enlaces rápidos</h6>
+
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">MDN HTML</a></li>
+        </ul>
+
+        <p>
+            <small>&copy; 2026 TechEvents CR. Todos los derechos reservados.</small>
+        </p>
+    </footer>
+
+</body>
 </html>
