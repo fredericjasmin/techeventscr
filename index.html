@@ -1,152 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta 
-        name="description" 
-        content="TechEvents CR es un sitio web informativo sobre eventos tecnológicos en Costa Rica."
-    >
-    <meta 
-        name="keywords" 
-        content="eventos tecnológicos, Costa Rica, programación, inteligencia artificial, ciberseguridad, desarrollo web"
-    >
+    <meta name="description"
+        content="TechEvents CR es un sitio web informativo sobre eventos tecnológicos en Costa Rica.">
+    <meta name="keywords"
+        content="eventos tecnológicos, Costa Rica, programación, inteligencia artificial, ciberseguridad, desarrollo web">
     <meta name="author" content="TechEvents CR">
-
+    <!-- CSS externo principal del sitio -->
+    <link rel="stylesheet" href="css/style.css">
     <title>TechEvents CR | Inicio</title>
 </head>
 
 <body>
+    <!-- Encabezado principal fijo del sitio -->
+    <header class="site-header">
+        <div class="container header-content">
+            <p class="logo"><strong>TechEvents CR</strong></p>
 
-    <header>
-        <p><strong>TechEvents CR</strong></p>
+            <!-- *** Checkbox oculto para controlar el menú hamburguesa sin JavaScript -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="#sobre-plataforma">Sobre la plataforma</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li>
-                    <a href="https://www.w3schools.com/html/" target="_blank">
-                        Recurso externo HTML
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            <!-- *** Botón visual del menú hamburguesa -->
+            <label for="menu-toggle" class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Navegación principal -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="#sobre-plataforma">Sobre la plataforma</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li>
+                        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">
+                            MDN HTML
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <hr>
-
+    <!-- Contenido principal -->
     <main>
+        <!-- Sección hero con columnas flotantes -->
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Comunidad tecnológica</span>
 
-        <section id="inicio">
-            <h1>Eventos tecnológicos en Costa Rica</h1>
+                    <h1>Eventos tecnológicos en Costa Rica</h1>
+                    <p>
+                        Bienvenido a <strong>TechEvents CR</strong>, una plataforma informativa para conocer
+                        eventos relacionados con programación, inteligencia artificial, ciberseguridad
+                        y desarrollo web.
+                    </p>
 
-            <p>
-                Bienvenido a <strong>TechEvents CR</strong>, una plataforma informativa para conocer
-                eventos relacionados con <em>programación, inteligencia artificial, ciberseguridad
-                y desarrollo web</em>.
-            </p>
+                    <a class="btn-primary" href="eventos.html">
+                        Ver eventos
+                    </a>
 
-            <figure>
-                <img 
-                    src="assets/images/hero-eventos.png" 
-                    alt="Personas participando en un evento tecnológico"
-                    width="600"
-                >
-                <figcaption>
-                    Comunidad tecnológica participando en actividades de aprendizaje.
-                </figcaption>
-            </figure>
+                    <!-- Caja relativa que contiene un elemento absoluto -->
+                    <div class="hero-info">
+                        <span class="info-label">Nuevo</span>
+                        <p>
+                            <mark>Próximamente:</mark> registro de usuarios, detalle de eventos y gestión completa
+                            de inscripciones.
+                        </p>
+                        <button class="btn-secondary">
+                            Explorar plataforma
+                        </button>
+                    </div>
+                </div>
 
-            <p>
-                <mark>Próximamente:</mark> registro de usuarios, detalle de eventos y gestión completa
-                de inscripciones.
-            </p>
-
-            <button>Ver eventos</button>
+                <figure class="hero-image">
+                    <img src="assets/images/hero-eventos.png" alt="Personas participando en un evento tecnológico">
+                    <figcaption>
+                        Comunidad tecnológica participando en actividades de aprendizaje.
+                    </figcaption>
+                </figure>
+            </div>
         </section>
 
-        <hr>
-
+        <!-- Información general de la plataforma -->
         <section id="sobre-plataforma">
-            <h2>Sobre la plataforma</h2>
+            <div class="container">
+                <h2>Sobre la plataforma</h2>
+                <p>
+                    TechEvents CR busca centralizar información sobre actividades tecnológicas relevantes
+                    para estudiantes, docentes, profesionales y comunidades de innovación.
+                </p>
 
-            <p>
-                TechEvents CR busca centralizar información sobre actividades tecnológicas relevantes
-                para estudiantes, docentes, profesionales y comunidades de innovación.
-            </p>
-
-            <h3>Beneficios principales</h3>
-
-            <ul>
-                <li><strong>Organización:</strong> eventos clasificados por categoría.</li>
-                <li><strong>Accesibilidad:</strong> información disponible desde cualquier navegador.</li>
-                <li><strong>Actualización:</strong> contenido preparado para crecer con datos dinámicos.</li>
-                <li><strong>Aprendizaje:</strong> práctica progresiva de HTML, CSS, JavaScript y React.</li>
-            </ul>
+                <h3>Beneficios principales</h3>
+                <ul>
+                    <li><strong>Organización:</strong> eventos clasificados por categoría.</li>
+                    <li><strong>Accesibilidad:</strong> información disponible desde cualquier navegador.</li>
+                    <li><strong>Actualización:</strong> contenido preparado para crecer con datos dinámicos.</li>
+                    <li><strong>Aprendizaje:</strong> práctica progresiva de HTML, CSS, JavaScript y React.</li>
+                </ul>
+            </div>
         </section>
 
+        <!-- Aside informativo separado del contenido principal -->
         <aside>
             <h4>Evento destacado</h4>
-
             <p>
                 <strong>React Summit Alajuela</strong><br>
                 Fecha: <time datetime="2026-06-15">15 de junio de 2026</time><br>
                 Cupos disponibles: <span>35</span>
             </p>
-
             <small>
                 La información mostrada es parte de un ejemplo académico.
             </small>
         </aside>
 
-        <hr>
-
+        <!-- Contenido multimedia -->
         <section>
-            <h2>Contenido multimedia</h2>
+            <div class="container">
+                <h2>Contenido multimedia</h2>
 
-            <h3>Video promocional</h3>
+                <h3>Video promocional</h3>
+                <video controls width="500">
+                    <source src="assets/video/promo-evento.mp4" type="video/mp4">
+                    Su navegador no soporta la reproducción de video.
+                </video>
 
-            <video controls width="500">
-                <source src="assets/video/promo-evento.mp4" type="video/mp4">
-                Su navegador no soporta la reproducción de video.
-            </video>
-
-            <h3>Audio de bienvenida</h3>
-
-            <audio controls>
-                <source src="assets/audio/bienvenida.mp3" type="audio/mpeg">
-                Su navegador no soporta la reproducción de audio.
-            </audio>
+                <h3>Audio de bienvenida</h3>
+                <audio controls>
+                    <source src="assets/audio/bienvenida.mp3" type="audio/mpeg">
+                    Su navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
         </section>
 
-        <hr>
-
+        <!-- Ubicación general -->
         <section>
-            <h2>Ubicación general</h2>
+            <div class="container">
+                <h2>Ubicación general</h2>
+                <p>
+                    Algunos eventos se realizarán en sedes universitarias, auditorios y espacios de innovación.
+                </p>
 
-            <p>
-                Algunos eventos se realizarán en sedes universitarias, auditorios y espacios de innovación.
-            </p>
-
-            <iframe 
-                src="https://www.google.com/maps?q=Alajuela,Costa%20Rica&output=embed"
-                width="600"
-                height="350"
-                loading="lazy"
-                title="Mapa de Alajuela Costa Rica">
-            </iframe>
+                <iframe src="https://www.google.com/maps?q=Alajuela,Costa%20Rica&output=embed" width="600" height="350"
+                    loading="lazy" title="Mapa de Alajuela Costa Rica">
+                </iframe>
+            </div>
         </section>
-
     </main>
 
-    <hr>
-
+    <!-- Pie de página -->
     <footer id="contacto">
         <h5>Contacto</h5>
-
         <address>
             TechEvents CR<br>
             Correo: contacto@techeventscr.com<br>
@@ -154,7 +164,6 @@
         </address>
 
         <h6>Enlaces rápidos</h6>
-
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
@@ -165,6 +174,6 @@
             <small>&copy; 2026 TechEvents CR. Todos los derechos reservados.</small>
         </p>
     </footer>
-
 </body>
+
 </html>
