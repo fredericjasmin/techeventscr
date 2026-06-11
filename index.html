@@ -33,7 +33,7 @@
             <!-- Navegación principal -->
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a class="active-link" href="index.html">Inicio</a></li>
                     <li><a href="eventos.html">Eventos</a></li>
                     <li><a href="#sobre-plataforma">Sobre la plataforma</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -46,7 +46,13 @@
             </nav>
         </div>
     </header>
-
+    <!-- Ubicacion actual -->
+    <nav class="breadcrumb" aria-label="Ubicación actual">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <span>Inicio</span>
+        </div>
+    </nav>
     <!-- Contenido principal -->
     <main>
         <!-- Sección hero con columnas flotantes -->
@@ -61,10 +67,16 @@
                         eventos relacionados con programación, inteligencia artificial, ciberseguridad
                         y desarrollo web.
                     </p>
+                    <!-- Mejora de jerarquia visual -->
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="eventos.html">
+                            Ver eventos
+                        </a>
 
-                    <a class="btn-primary" href="eventos.html">
-                        Ver eventos
-                    </a>
+                        <a class="btn-link" href="#sobre-plataforma">
+                            Conocer la plataforma
+                        </a>
+                    </div>
 
                     <!-- Caja relativa que contiene un elemento absoluto -->
                     <div class="hero-info">
@@ -79,12 +91,14 @@
                     </div>
                 </div>
 
+
                 <figure class="hero-image">
                     <img src="assets/images/hero-eventos.png" alt="Personas participando en un evento tecnológico">
                     <figcaption>
                         Comunidad tecnológica participando en actividades de aprendizaje.
                     </figcaption>
                 </figure>
+
             </div>
         </section>
 
@@ -96,14 +110,23 @@
                     TechEvents CR busca centralizar información sobre actividades tecnológicas relevantes
                     para estudiantes, docentes, profesionales y comunidades de innovación.
                 </p>
-
                 <h3>Beneficios principales</h3>
-                <ul>
-                    <li><strong>Organización:</strong> eventos clasificados por categoría.</li>
-                    <li><strong>Accesibilidad:</strong> información disponible desde cualquier navegador.</li>
-                    <li><strong>Actualización:</strong> contenido preparado para crecer con datos dinámicos.</li>
-                    <li><strong>Aprendizaje:</strong> práctica progresiva de HTML, CSS, JavaScript y React.</li>
-                </ul>
+                <div class="benefits-grid">
+                    <article class="benefit-card">
+                        <h4>Eventos organizados</h4>
+                        <p>Consulta actividades por categoría, modalidad y fecha.</p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h4>Información clara</h4>
+                        <p>Visualiza rápidamente cupos, ubicación y tipo de evento.</p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <h4>Preparado para interacción</h4>
+                        <p>El sitio se ampliará con búsqueda, filtros y registros.</p>
+                    </article>
+                </div>
             </div>
         </section>
 

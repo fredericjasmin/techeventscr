@@ -9,6 +9,7 @@
     <meta name="author" content="TechEvents CR">
     <!-- CSS externo principal del sitio -->
     <link rel="stylesheet" href="css/style.css">
+
     <title>TechEvents CR | Eventos</title>
 </head>
 
@@ -32,7 +33,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a class="active-link" href="eventos.html">Eventos</a></li>
                     <li><a href="#tabla-eventos">Tabla de eventos</a></li>
                     <li><a href="#evento-destacado">Evento destacado</a></li>
                     <li>
@@ -44,7 +45,13 @@
             </nav>
         </div>
     </header>
-
+    <!-- Ubicacion actual -->
+    <nav class="breadcrumb" aria-label="Ubicación actual">
+        <div class="container">
+            <a href="index.html">Inicio</a>
+            <span>Eventos</span>
+        </div>
+    </nav>
     <!-- Contenido principal -->
     <main>
         <!-- Presentación de la página -->
@@ -62,7 +69,19 @@
         <section class="events-section">
             <div class="container">
                 <h2>Listado de eventos</h2>
+                <div class="ui-states-demo">
+                    <div class="state-box state-success">
+                        Disponible
+                    </div>
 
+                    <div class="state-box state-warning">
+                        Pocos cupos
+                    </div>
+
+                    <div class="state-box state-danger">
+                        Evento lleno
+                    </div>
+                </div>
                 <!-- Tarjetas con float y posición relativa -->
                 <div class="events-grid">
                     <article class="event-card">
@@ -73,54 +92,79 @@
                             <figcaption>Evento sobre desarrollo web moderno con React.</figcaption>
                         </figure>
                         <div class="event-card-content">
-                            <span class="event-category">React Summit Alajuela</span>
+                            <span class="event-category">Desarrollo Web</span>
+                            <h3>React Summit Alajuela</h3>
                             <p>
                                 <b>Fecha:</b>
                                 <time datetime="2026-06-15">15 de junio de 2026</time>
                             </p>
                             <p><b>Ubicación:</b> Auditorio Central, Alajuela</p>
-                            <p><b>Categoría:</b> <span>Desarrollo Web</span></p>
+
+                            <p class="state-box state-success">35 cupos disponibles</p>
+
+                            <a class="btn-card" href="#tabla-eventos">
+                                Ver información
+                            </a>
                         </div>
                     </article>
 
                     <article class="event-card">
-                        <span class="card-label">Destacado</span>
+                        <span class="card-label">Pocos cupos</span>
                         <figure>
                             <img src="assets/images/evento-ia.jpeg"
                                 alt="Imagen representativa de inteligencia artificial" width="350">
                             <figcaption>Charla sobre aplicaciones reales de inteligencia artificial.</figcaption>
                         </figure>
+
                         <div class="event-card-content">
-                            <span class="event-category">Foro de Inteligencia Artificial Aplicada</span>
+                            <span class="event-category">Inteligencia Artificial</span>
+                            <h3>Foro de Inteligencia Artificial Aplicada</h3>
                             <p>
                                 <b>Fecha:</b>
                                 <time datetime="2026-06-22">22 de junio de 2026</time>
                             </p>
                             <p><b>Ubicación:</b> Centro de Innovación, San José</p>
-                            <p><b>Categoría:</b> <span>Inteligencia Artificial</span></p>
+
+                            <p class="state-box state-warning">8 cupos disponibles</p>
+                            <a class="btn-card" href="#tabla-eventos">
+                                Ver información
+                            </a>
                         </div>
                     </article>
 
                     <article class="event-card">
-                        <span class="card-label">Taller</span>
+                        <span class="card-label">Evento lleno</span>
                         <figure>
                             <img src="assets/images/evento-ciberseguridad.jpg"
                                 alt="Imagen representativa de ciberseguridad" width="350">
                             <figcaption>Taller introductorio sobre seguridad informática.</figcaption>
                         </figure>
+
                         <div class="event-card-content">
-                            <span class="event-category">Introducción a la Ciberseguridad</span>
+                            <span class="event-category">Ciberseguridad</span>
+                            <h3>Introducción a la Ciberseguridad</h3>
                             <p>
                                 <b>Fecha:</b>
                                 <time datetime="2026-06-29">29 de junio de 2026</time>
                             </p>
                             <p><b>Ubicación:</b> Laboratorio Tecnológico, Heredia</p>
-                            <p><b>Categoría:</b> <span>Ciberseguridad</span></p>
+
+                            <p class="state-box state-danger">Sin cupos disponibles</p>
+                            <a class="btn-card btn-card-disabled" href="#tabla-eventos">
+                                Ver información
+                            </a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
+        <!-- Estado vacío -->
+        <div class="empty-state">
+            <h3>Sin resultados por ahora</h3>
+            <p>
+                Este mensaje se mostrará cuando no existan eventos para una búsqueda o filtro.
+            </p>
+        </div>
 
         <!-- Tabla semántica para mostrar datos estructurados -->
         <section id="tabla-eventos" class="container">
@@ -175,6 +219,55 @@
                 Esta información será dinámica en próximas semanas del curso.
             </small>
         </aside>
+        
+        <section class="container">
+            <h2 id="tituloEventos">Interacción con eventos</h2>
+
+            <button onclick="mostrarDetalleEvento(1)">
+                Ver detalle con onclick
+            </button>
+
+            <button id="btnDetalle">
+                Ver detalle con propiedad onclick
+            </button>
+
+            <button id="btnMostrarEventos">
+                Mostrar todos los eventos
+            </button>
+
+            <hr>
+
+            <label for="busquedaEvento">Buscar evento:</label>
+            <input type="text" id="busquedaEvento" placeholder="Digite una palabra">
+
+            <p id="mensajeBusqueda"></p>
+
+            <hr>
+
+            <form id="formInscripcion">
+                <h3>Formulario rápido de inscripción</h3>
+
+                <label for="nombreParticipante">Nombre:</label>
+                <input type="text" id="nombreParticipante" placeholder="Nombre completo">
+
+                <label for="selectEvento">Evento:</label>
+                <select id="selectEvento">
+                    <option value="">Seleccione un evento</option>
+                    <option value="1">React Summit Alajuela</option>
+                    <option value="2">Foro de Inteligencia Artificial Aplicada</option>
+                    <option value="3">Introducción a la Ciberseguridad</option>
+                    <option value="4">Bootcamp de Desarrollo Móvil con Flutter</option>
+                    <option value="5">Cloud Computing Essentials</option>
+                </select>
+
+                <button type="submit">
+                    Solicitar inscripción
+                </button>
+            </form>
+
+            <p id="resultadoInscripcion"></p>
+        </section>
+
     </main>
 
     <!-- Pie de página -->
@@ -184,7 +277,9 @@
             Correo: contacto@techeventscr.com<br>
             Costa Rica
         </address>
-
+        <button onclick="alert('Bienvenido a TechEvents CR')">
+            Probar JavaScript
+        </button>
         <ul>
             <li><a href="index.html">Volver al inicio</a></li>
             <li><a href="eventos.html">Ver eventos</a></li>
@@ -199,6 +294,12 @@
             <small>&copy; 2026 TechEvents CR. Todos los derechos reservados.</small>
         </p>
     </footer>
+    <!--<script >
+        console.log("JavaScript interno")
+        console.error("Error")
+    </script>
+    <script src="js/app.js"></script> -->
+    <script src="js/script2.js"></script>
 </body>
 
 </html>

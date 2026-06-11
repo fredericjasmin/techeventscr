@@ -1,0 +1,97 @@
+const eventos = [
+    {
+        id: 1,
+        nombre: "React Summit Alajuela",
+        categoria: "Desarrollo Web",
+        modalidad: "Presencial",
+        cuposTotales: 50,
+        inscritos: 15,
+        activo: true
+    },
+    {
+        id: 2,
+        nombre: "Foro de Inteligencia Artificial Aplicada",
+        categoria: "Inteligencia Artificial",
+        modalidad: "Híbrida",
+        cuposTotales: 50,
+        inscritos: 42,
+        activo: true
+    },
+    {
+        id: 3,
+        nombre: "Introducción a la Ciberseguridad",
+        categoria: "Ciberseguridad",
+        modalidad: "Presencial",
+        cuposTotales: 25,
+        inscritos: 25,
+        activo: true
+    },
+    {
+        id: 4,
+        nombre: "Bootcamp de Desarrollo Móvil con Flutter",
+        categoria: "Desarrollo Móvil",
+        modalidad: "Virtual",
+        cuposTotales: 80,
+        inscritos: 35,
+        activo: true
+    },
+    {
+        id: 5,
+        nombre: "Cloud Computing Essentials",
+        categoria: "Computación en la Nube",
+        modalidad: "Híbrida",
+        cuposTotales: 40,
+        inscritos: 38,
+        activo: false
+    }
+];
+
+
+
+<section class="container">
+            <h2 id="tituloEventos">Interacción con eventos</h2>
+
+            <button onclick="mostrarDetalleEvento(1)">
+                Ver detalle con onclick
+            </button>
+
+            <button id="btnDetalle">
+                Ver detalle con propiedad onclick
+            </button>
+
+            <button id="btnMostrarEventos">
+                Mostrar todos los eventos
+            </button>
+
+            <hr>
+
+            <label for="busquedaEvento">Buscar evento:</label>
+            <input type="text" id="busquedaEvento" placeholder="Digite una palabra">
+
+            <p id="mensajeBusqueda"></p>
+
+            <hr>
+
+            <form id="formInscripcion">
+                <h3>Formulario rápido de inscripción</h3>
+
+                <label for="nombreParticipante">Nombre:</label>
+                <input type="text" id="nombreParticipante" placeholder="Nombre completo">
+
+                <label for="selectEvento">Evento:</label>
+                <select id="selectEvento">
+                    <option value="">Seleccione un evento</option>
+                    <option value="1">React Summit Alajuela</option>
+                    <option value="2">Foro de Inteligencia Artificial Aplicada</option>
+                    <option value="3">Introducción a la Ciberseguridad</option>
+                    <option value="4">Bootcamp de Desarrollo Móvil con Flutter</option>
+                    <option value="5">Cloud Computing Essentials</option>
+                </select>
+
+                <button type="submit">
+                    Solicitar inscripción
+                </button>
+            </form>
+
+            <p id="resultadoInscripcion"></p>
+        </section>

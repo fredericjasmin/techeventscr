@@ -23,7 +23,7 @@ body {
     color: #1f2937;
     line-height: 1.6;
 
-    /* *** Espacio para que el header fixed no tape el contenido */
+    /*  Espacio para que el header fixed no tape el contenido */
     padding-top: 88px;
 }
 
@@ -101,7 +101,7 @@ HEADER Y NAVEGACIÓN
     z-index: 1000;
 }
 
-/* *** Flexbox alinea logo, menú y botón hamburguesa */
+/*  Flexbox alinea logo, menú y botón hamburguesa */
 .header-content {
     display: flex;
     align-items: center;
@@ -116,12 +116,12 @@ HEADER Y NAVEGACIÓN
     white-space: nowrap;
 }
 
-/* *** Checkbox oculto usado para abrir/cerrar menú */
+/*  Checkbox oculto usado para abrir/cerrar menú */
 .menu-toggle {
     display: none;
 }
 
-/* *** Botón hamburguesa oculto en escritorio */
+/*  Botón hamburguesa oculto en escritorio */
 .menu-button {
     display: none;
     width: 38px;
@@ -129,7 +129,7 @@ HEADER Y NAVEGACIÓN
     cursor: pointer;
 }
 
-/* *** Líneas del botón hamburguesa */
+/*  Líneas del botón hamburguesa */
 .menu-button span {
     display: block;
     height: 4px;
@@ -142,7 +142,7 @@ HEADER Y NAVEGACIÓN
 .main-nav ul {
     list-style: none;
 
-    /* *** Flexbox organiza enlaces en fila */
+    /*  Flexbox organiza enlaces en fila */
     display: flex;
     align-items: center;
     gap: 12px;
@@ -172,7 +172,7 @@ HERO
     padding: 70px 0;
 }
 
-/* *** Flexbox crea dos columnas responsivas */
+/*  Flexbox crea dos columnas responsivas */
 .hero-content {
     display: flex;
     align-items: center;
@@ -323,11 +323,11 @@ EVENTOS
     background-color: #f4f7fb;
 }
 
-/* *** Grid crea columnas automáticas y responsivas */
+/*  Grid crea columnas automáticas y responsivas */
 .events-grid {
     display: grid;
 
-    /* *** Ajusta cantidad de columnas según espacio disponible */
+    /*  Ajusta cantidad de columnas según espacio disponible */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
     gap: 28px;
@@ -344,7 +344,7 @@ EVENTOS
 
     position: relative;
 
-    /* *** Flex interno mantiene contenido ordenado verticalmente */
+    /*  Flex interno mantiene contenido ordenado verticalmente */
     display: flex;
     flex-direction: column;
 }
@@ -366,16 +366,16 @@ EVENTOS
     font-size: 0.8rem;
     color: #64748b;
 
-    /* *** Más espacio para que no quede pegado */
+    /*  Más espacio para que no quede pegado */
     padding: 10px 16px 0 16px;
 }
 
 /* Contenido textual de tarjeta */
 .event-card-content {
-    /* *** Corrige texto pegado a la orilla */
+    /*  Corrige texto pegado a la orilla */
     padding: 20px;
 
-    /* *** Hace que el contenido ocupe el espacio disponible */
+    /*  Hace que el contenido ocupe el espacio disponible */
     flex: 1;
 }
 
@@ -423,7 +423,7 @@ aside {
     border-bottom: 1px solid #bae6fd;
 }
 
-/* *** Centra contenido del aside sin repetir estilos */
+/*  Centra contenido del aside sin repetir estilos */
 aside p,
 aside small,
 aside h2,
@@ -441,13 +441,13 @@ aside small {
 TABLA RESPONSIVA
 ========================= */
 
-/* *** Sección de tabla con separación visual */
+/*  Sección de tabla con separación visual */
 .table-section {
     padding-top: 48px;
     padding-bottom: 48px;
 }
 
-/* *** Permite desplazamiento horizontal si la pantalla es estrecha */
+/*  Permite desplazamiento horizontal si la pantalla es estrecha */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -455,7 +455,7 @@ TABLA RESPONSIVA
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
-/* *** Tabla limpia, legible y adaptable */
+/*  Tabla limpia, legible y adaptable */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -463,7 +463,7 @@ table {
     min-width: 650px;
 }
 
-/* *** Encabezados y celdas con mejor separación */
+/*  Encabezados y celdas con mejor separación */
 th,
 td {
     padding: 14px 16px;
@@ -472,24 +472,24 @@ td {
     vertical-align: top;
 }
 
-/* *** Encabezado destacado */
+/*  Encabezado destacado */
 th {
     background-color: #00194a;
     color: white;
     font-weight: bold;
 }
 
-/* *** Alterna color para lectura */
+/*  Alterna color para lectura */
 tr:nth-child(even) {
     background-color: #f8fafc;
 }
 
-/* *** Efecto suave al pasar mouse */
+/*  Efecto suave al pasar mouse */
 tbody tr:hover {
     background-color: #e0f2fe;
 }
 
-/* *** Última fila sin borde inferior */
+/*  Última fila sin borde inferior */
 tbody tr:last-child td {
     border-bottom: none;
 }
@@ -551,16 +551,212 @@ footer address {
 }
 
 /* =========================
+UX: NAVEGACIÓN ACTIVA
+========================= */
+
+/*  Indica visualmente la página actual */
+.active-link {
+    background-color: #00b4d8;
+    color: #00194a;
+}
+
+/*  Mejora accesibilidad al navegar con teclado */
+.main-nav a:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-card:focus,
+.btn-link:focus {
+    outline: 3px solid #90e0ef;
+    outline-offset: 3px;
+}
+
+/* =========================
+UX: UBICACIÓN ACTUAL
+========================= */
+
+/*  Breadcrumb muestra dónde está el usuario */
+.breadcrumb {
+    background-color: white;
+    border-bottom: 1px solid #dbeafe;
+    padding: 12px 0;
+}
+
+/*  Distribución simple de ruta */
+.breadcrumb .container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+/*  Separador visual sin agregar texto extra al HTML */
+.breadcrumb a::after {
+    content: "/";
+    margin-left: 8px;
+    color: #64748b;
+}
+
+.breadcrumb a {
+    color: #0369a1;
+    font-weight: bold;
+}
+
+.breadcrumb span {
+    color: #475569;
+}
+
+/* =========================
+UX: JERARQUÍA VISUAL
+========================= */
+
+/*  Separa acción principal y secundaria */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/*  Acción secundaria menos fuerte que el botón principal */
+.btn-link {
+    color: #00194a;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/*  Beneficios resumidos para lectura rápida */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+/*  Tarjetas informativas breves */
+.benefit-card {
+    background-color: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.benefit-card h3 {
+    color: #00194a;
+    margin-bottom: 8px;
+}
+
+.benefit-card p {
+    margin-bottom: 0;
+}
+
+/*  El título del evento debe destacar más que los datos */
+.event-card h3 {
+    font-size: 1.25rem;
+    color: #00194a;
+    margin-bottom: 12px;
+}
+
+/*  Estado de disponibilidad dentro de la tarjeta */
+.availability {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/*  Estado positivo */
+.available {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/*  Botón dentro de tarjeta */
+.btn-card {
+    display: inline-block;
+    margin-top: 12px;
+    background-color: #00194a;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/*  Feedback visual al pasar el mouse */
+.btn-card:hover {
+    background-color: #00b4d8;
+    color: #00194a;
+}
+
+/* =========================
+UX: ESTADOS DE INTERFAZ
+========================= */
+
+/* ***  Estados visibles antes del listado */
+.ui-states-demo {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 18px 0 28px 0;
+}
+
+/* ***  Base visual de cada estado */
+.state-box {
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* ***  Estado exitoso */
+.state-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* ***  Estado de advertencia */
+.state-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* ***  Estado de alerta */
+.state-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* ***  Estado vacío simulado */
+.empty-state {
+    margin-top: 32px;
+    padding: 28px;
+    background-color: white;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    text-align: center;
+}
+/* ***  Contenido del estado vacío */
+.empty-state h3 {
+    color: #00194a;
+}
+/* ***  Contenido del estado vacío */
+.empty-state p {
+    color: #475569;
+    margin-bottom: 0;
+}
+
+/* =========================
 MEDIA QUERY TABLET
 ========================= */
 
-/* *** Ajustes para pantallas medianas */
+/*  Ajustes para pantallas medianas */
 @media (max-width: 900px) {
     body {
         padding-top: 86px;
     }
 
-    /* *** Hero pasa de dos columnas a una columna */
+    /*  Hero pasa de dos columnas a una columna */
     .hero-content {
         flex-direction: column;
         align-items: flex-start;
@@ -575,7 +771,7 @@ MEDIA QUERY TABLET
         max-width: 650px;
     }
 
-    /* *** Menú todavía visible, pero con menos separación */
+    /*  Menú todavía visible, pero con menos separación */
     .main-nav ul {
         gap: 6px;
     }
@@ -590,7 +786,7 @@ MEDIA QUERY TABLET
 MEDIA QUERY MÓVIL
 ========================= */
 
-/* *** Ajustes para pantallas pequeñas */
+/*  Ajustes para pantallas pequeñas */
 @media (max-width: 700px) {
     body {
         padding-top: 78px;
@@ -604,12 +800,12 @@ MEDIA QUERY MÓVIL
         position: relative;
     }
 
-    /* *** Muestra el botón hamburguesa */
+    /*  Muestra el botón hamburguesa */
     .menu-button {
         display: block;
     }
 
-    /* *** Menú oculto inicialmente */
+    /*  Menú oculto inicialmente */
     .main-nav {
         display: none;
         position: absolute;
@@ -625,12 +821,12 @@ MEDIA QUERY MÓVIL
         z-index: 999;
     }
 
-    /* *** Cuando el checkbox está activo, se muestra el menú */
+    /*  Cuando el checkbox está activo, se muestra el menú */
     .menu-toggle:checked~.main-nav {
         display: block;
     }
 
-    /* *** Menú vertical en móvil */
+    /*  Menú vertical en móvil */
     .main-nav ul {
         display: flex;
         flex-direction: column;
@@ -660,7 +856,7 @@ MEDIA QUERY MÓVIL
         height: 200px;
     }
 
-    /* *** La tabla cambia a formato tarjeta en móvil */
+    /*  La tabla cambia a formato tarjeta en móvil */
     .table-responsive {
         overflow-x: visible;
         box-shadow: none;
@@ -701,7 +897,7 @@ MEDIA QUERY MÓVIL
         border-bottom: none;
     }
 
-    /* *** Muestra el nombre de cada columna antes del valor */
+    /*  Muestra el nombre de cada columna antes del valor */
     td::before {
         content: attr(data-label);
         display: block;
@@ -710,7 +906,7 @@ MEDIA QUERY MÓVIL
         margin-bottom: 4px;
     }
 
-    /* *** Resalta visualmente el nombre del evento en móvil */
+    /*  Resalta visualmente el nombre del evento en móvil */
     td[data-label="Evento"] {
         color: #00194a;
         font-weight: bold;
@@ -720,13 +916,40 @@ MEDIA QUERY MÓVIL
         border-radius: 8px;
         margin-bottom: 8px;
     }
+    /* *** Breadcrumb más compacto en celular */
+    .breadcrumb .container {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+    }
+
+    /* *** Acciones del hero en columna para mejor toque */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-link {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* *** Estados de interfaz ocupan todo el ancho */
+    .state-box {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-card {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* =========================
 MEDIA QUERY MÓVIL PEQUEÑO
 ========================= */
 
-/* *** Ajustes para teléfonos angostos */
+/*  Ajustes para teléfonos angostos */
 @media (max-width: 420px) {
     .logo {
         font-size: 1.15rem;
