@@ -1,120 +1,200 @@
-/*
-const por defecto
-let cuando el valor cambia
-var es código antiguo
-*/
-const nombreEvento = "React Summit Alajuela" //string
-const cuposTotales = 50 //number
-const activo = true //boolean
-let organizador = null // null
-let observacion //undefined
+const contenedorEventos = document.getElementById("contenedorEventos")
+const mensajeEventos = document.getElementById("mensajeEventos")
 
-let cuposDisponibles = 35
-cuposDisponibles--
-console.log("Cupos disponibles: ", cuposDisponibles)
+const filtroCategoria = document.getElementById("filtroCategoria")
+const filtroModalidad = document.getElementById("filtroModalidad")
+const filtroEtiqueta = document.getElementById("filtroEtiqueta")
 
-let prueba = nombreEvento + cuposTotales
-console.log("Prueba: ", prueba)
+const btnLimpiarFiltros = document.getElementById("btnLimpiarFiltros")
 
-console.log(typeof nombreEvento)
-console.log(typeof cuposTotales)
-console.log(typeof activo)
-console.log(typeof observacion)
+const selectEventoInscripcion = document.getElementById("selectEventoInscripcion")
 
-let x = "3"
-let y = '3'
-
-console.log(typeof x)
-console.log(typeof y)
-
-x = "Nuevo"
-
-console.log("El evento " + nombreEvento + " tiene " +
-    cuposDisponibles + " cupos disponible")
-
-console.log(`El evento ${nombreEvento} tiene ${cuposDisponibles} cupos disponible`)
-
-/*Operadores matemáticos*/
-let inscritos = 15
-cuposDisponibles = cuposTotales - inscritos
-console.log(cuposDisponibles)
-
-console.log("Operadores lógicos")
-const modalidad = "Presencial"
-if (cuposDisponibles > 0 && activo)
-    console.log("El evento permite inscripción")
-
-if (modalidad === "Virtual" || modalidad === "Híbrida") {
-    console.log("El evento permite participación en línea")
+function calcularDisponibles(evento) {
+    return evento.cuposTotales - evento.inscritos
 }
 
-console.log("Condición simple")
-if (cuposDisponibles > 0) {
-    console.log("Inscripción disponible")
-}
-
-console.log("Condición doble")
-if (cuposDisponibles > 0) {
-    console.log("Inscripción disponible")
-} else {
-    console.log("Evento lleno")
-}
-
-console.log("Condición múltiples")
-if (cuposDisponibles > 10) {
-    console.log("Disponible")
-} else if (cuposDisponibles > 0) {
-    console.log("Pocos cupos")
-} else {
-    console.log("Evento lleno")
-}
-
-const evento = {
-    id: 1,
-    nombre: "React Summit Alajuela",
-    categoria: "Desarrollo web",
-    modalidad: "Presencial",
-    cuposTotales: 50,
-    inscritos: 15,
-    activo: true
-}
-
-const eventos = [
-    {
-        id: 1,
-        nombre: "React Summit Alajuela",
-        categoria: "Desarrollo web",
-        modalidad: "Presencial",
-        cuposTotales: 50,
-        inscritos: 15,
-        activo: true
-    },
-    {
-        id: 2,
-        nombre: "Foro de Inteligencia Artifical Aplicada",
-        categoria: "Inteligencia Artificial",
-        modalidad: "Híbrida",
-        cuposTotales: 50,
-        inscritos: 42,
-        activo: true
-    },
-    {
-        id: 3,
-        nombre: "Introducción a la Ciberseguridad",
-        categoria: "Ciberseguridad",
-        modalidad: "Presencial",
-        cuposTotales: 25,
-        inscritos: 25,
-        activo: true
+function obtenerEstadoEvento(evento) {
+    const disponibles = calcularDisponibles(evento)
+    if (disponibles === 0) {
+        return "Evento lleno"
     }
-]
-console.log(eventos[1].nombre)
-for (let i = 0; i < eventos.length; i++) {
-    console.log(eventos[i].nombre)    
+    if (disponibles <= 10) {
+        return "Pocos cupos"
+    }
+    return "Disponible"
 }
-for (const item of eventos) {
-    console.log(item.nombre)
+
+function obtenerClaseEstado(evento) {
+    const disponibles = calcularDisponibles(evento)
+    if (disponibles === 0) {
+        return "state-danger"
+    }
+    if (disponibles <= 10) {
+        return "state-warning"
+    }
+    return "state-success"
 }
-console.log("==================")
 
+function obtenerEventosActivos() {
+    return eventos.filter(function (evento) {
+        return evento.activo
+    });
+}
 
+function obtenerValoresUnicos(lista, propiedad) {
+    const valores = []
+    for (const item of lista) {
+        if (!valores.includes(item[propiedad])) {
+            valores.push(item[propiedad])
+        }
+    }
+    return valores
+}
+
+function obtenerEtiquetasUnicas(lista) {
+    const etiquetas = []
+    for (const evento of lista) {
+        for (const etiqueta of evento.etiquetas) {
+            if (!etiquetas.includes(etiqueta)) {
+                etiquetas.push(etiqueta)
+            }
+        }
+    }
+    return etiquetas
+}
+
+function cargarOpcionesSelect(select, opciones) {
+    for (const opcion of opciones) {
+        const option = document.createElement("option")
+        option.value = opcion
+        option.textContent = opcion
+        select.appendChild(option)
+    }
+}
+
+function cargarFiltros() {
+    const eventosActivos = obtenerEventosActivos()
+    const categorias =
+        obtenerValoresUnicos(eventosActivos, "categoria")
+    const modalidades =
+        obtenerValoresUnicos(eventosActivos, "modalidad")
+    const etiquetas =
+        obtenerEtiquetasUnicas(eventosActivos)
+    cargarOpcionesSelect(filtroCategoria, categorias)
+    cargarOpcionesSelect(filtroModalidad, modalidades)
+    cargarOpcionesSelect(filtroEtiqueta, etiquetas)
+}
+
+function cargarEventos() {
+    const eventosActivos = obtenerEventosActivos()
+    for (const evento of eventosActivos) {
+        const option = document.createElement("option")
+        option.value = evento.id
+        option.textContent = evento.nombre
+        selectEventoInscripcion.appendChild(option)
+    }
+    
+}
+
+function crearTarjetaEvento(evento) {
+    const disponibles = calcularDisponibles(evento)
+    const estado = obtenerEstadoEvento(evento)
+    const claseEstado = obtenerClaseEstado(evento)
+
+    const tarjeta = document.createElement("article")
+    tarjeta.classList.add("dynamic-event-card")
+
+    tarjeta.innerHTML = `
+        <div class="event-image-box">
+            <img src="${evento.imagen}" alt="Imagen del evento ${evento.nombre}">
+            <span class="event-status ${claseEstado}">
+                ${estado}
+            </span>
+        </div>
+        <div class="dynamic-event-content">
+            <span class="event-category">
+                ${evento.categoria}
+            </span>
+            <h3>${evento.nombre}</h3>
+            <p>
+                Modalidad:
+                <strong>${evento.modalidad}</strong>
+            </p>
+            <p>
+                Cupos disponibles:
+                <strong>${disponibles}</strong>
+            </p>
+            <div class="event-tags">
+                ${evento.etiquetas.map(function (etiqueta) {
+                    return `<span>${etiqueta}</span>`
+                }).join("")}
+            </div>
+        </div>
+    `
+    return tarjeta
+}
+
+function renderizarEventos(listaEventos) {
+    contenedorEventos.innerHTML = ""
+    if (listaEventos.length === 0) {
+        mensajeEventos.textContent =
+            "No se encontraron eventos activos con los filtros seleccionados."
+        contenedorEventos.innerHTML = `
+            <div class="dynamic-empty-state">
+                <h3>Sin resultados</h3>
+                <p>
+                    Cambie los filtros para visualizar otros eventos disponibles.
+                </p>
+            </div>
+        `
+        return
+    }
+    mensajeEventos.textContent =
+        `Mostrando ${listaEventos.length} evento(s) activo(s).`
+    for (const evento of listaEventos) {
+        const tarjeta = crearTarjetaEvento(evento)
+        contenedorEventos.appendChild(tarjeta)
+    }
+}
+
+function filtrarEventos() {
+    const categoriaSeleccionada = filtroCategoria.value
+    const modalidadSeleccionada = filtroModalidad.value
+    const etiquetaSeleccionada = filtroEtiqueta.value
+    const eventosFiltrados = eventos.filter(function (evento) {
+        const cumpleActivo = evento.activo
+        const cumpleCategoria =
+            categoriaSeleccionada === "" ||
+            evento.categoria === categoriaSeleccionada
+        const cumpleModalidad =
+            modalidadSeleccionada === "" ||
+            evento.modalidad === modalidadSeleccionada
+        const cumpleEtiqueta =
+            etiquetaSeleccionada === "" ||
+            evento.etiquetas.includes(etiquetaSeleccionada)
+        return cumpleActivo &&
+            cumpleCategoria &&
+            cumpleModalidad &&
+            cumpleEtiqueta
+    })
+    renderizarEventos(eventosFiltrados)
+}
+
+function limpiarFiltros() {
+    filtroCategoria.value = ""
+    filtroModalidad.value = ""
+    filtroEtiqueta.value = ""
+
+    filtrarEventos()
+}
+
+filtroCategoria.addEventListener("change", filtrarEventos);
+filtroModalidad.addEventListener("change", filtrarEventos);
+filtroEtiqueta.addEventListener("change", filtrarEventos);
+btnLimpiarFiltros.addEventListener("click", limpiarFiltros);
+
+document.addEventListener("DOMContentLoaded", function () {
+    cargarFiltros();
+    cargarEventos();
+    renderizarEventos(obtenerEventosActivos());
+});

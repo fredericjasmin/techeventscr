@@ -203,6 +203,99 @@
                 </table>
             </div>
         </section>
+        <!-- *** Ejemplo SEMANA 5 *** -->
+        <section class="events-dynamic-section">
+
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-badge">Semana 5 · DOM</span>
+                    <h2>Explorar eventos tecnológicos</h2>
+                    <p>
+                        Los eventos se generan dinámicamente desde JavaScript.
+                    </p>
+                </div>
+
+                <div class="filters-panel">
+                    <div class="filter-group">
+                        <label for="filtroCategoria">Categoría</label>
+                        <select id="filtroCategoria">
+                            <option value="">Todas las categorías</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filtroModalidad">Modalidad</label>
+                        <select id="filtroModalidad">
+                            <option value="">Todas las modalidades</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filtroEtiqueta">Etiqueta</label>
+                        <select id="filtroEtiqueta">
+                            <option value="">Todas las etiquetas</option>
+                        </select>
+                    </div>
+
+                    <button id="btnLimpiarFiltros" class="btn-clear">
+                        Limpiar filtros
+                    </button>
+                </div>
+
+                <p id="mensajeEventos" class="events-message">
+                    Cargando eventos disponibles...
+                </p>
+
+                <div id="contenedorEventos" class="dynamic-events-grid"></div>
+            </div>
+        </section>
+        <!-- *** Ejemplo SEMANA 5 *** -->
+
+        <section class="registration-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-badge">Reto DOM</span>
+                    <h2>Formulario de inscripción</h2>
+                    <p>
+                        Seleccione un evento activo y revise la información calculada antes
+                        de continuar con el proceso de inscripción.
+                    </p>
+                </div>
+                <div class="registration-layout">
+                    <form class="registration-form">
+                        <div class="form-group">
+                            <label for="selectEventoInscripcion">Evento</label>
+                            <select id="selectEventoInscripcion">
+                                <option value="">Seleccione un evento</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombreParticipante">Nombre del participante</label>
+                            <input type="text" id="nombreParticipante" placeholder="Ejemplo: Ana Rodríguez">
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidadCupos">Cantidad de cupos</label>
+                            <input type="number" id="cantidadCupos" value="1" min="1">
+                        </div>
+                        <button type="button" id="btnVistaPreviaInscripcion">
+                            Generar vista previa
+                        </button>
+                    </form>
+                    <article id="detalleEventoInscripcion" class="registration-detail">
+                        <div class="detail-empty">
+                            <h3>Seleccione un evento</h3>
+                            <p>
+                                Aquí se mostrará la información del evento seleccionado.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div id="resumenInscripcion" class="registration-summary">
+                    La vista previa de inscripción aparecerá aquí.
+                </div>
+            </div>
+        </section>
+
 
         <!-- Información complementaria -->
         <aside id="evento-destacado">
@@ -219,55 +312,6 @@
                 Esta información será dinámica en próximas semanas del curso.
             </small>
         </aside>
-        
-        <section class="container">
-            <h2 id="tituloEventos">Interacción con eventos</h2>
-
-            <button onclick="mostrarDetalleEvento(1)">
-                Ver detalle con onclick
-            </button>
-
-            <button id="btnDetalle">
-                Ver detalle con propiedad onclick
-            </button>
-
-            <button id="btnMostrarEventos">
-                Mostrar todos los eventos
-            </button>
-
-            <hr>
-
-            <label for="busquedaEvento">Buscar evento:</label>
-            <input type="text" id="busquedaEvento" placeholder="Digite una palabra">
-
-            <p id="mensajeBusqueda"></p>
-
-            <hr>
-
-            <form id="formInscripcion">
-                <h3>Formulario rápido de inscripción</h3>
-
-                <label for="nombreParticipante">Nombre:</label>
-                <input type="text" id="nombreParticipante" placeholder="Nombre completo">
-
-                <label for="selectEvento">Evento:</label>
-                <select id="selectEvento">
-                    <option value="">Seleccione un evento</option>
-                    <option value="1">React Summit Alajuela</option>
-                    <option value="2">Foro de Inteligencia Artificial Aplicada</option>
-                    <option value="3">Introducción a la Ciberseguridad</option>
-                    <option value="4">Bootcamp de Desarrollo Móvil con Flutter</option>
-                    <option value="5">Cloud Computing Essentials</option>
-                </select>
-
-                <button type="submit">
-                    Solicitar inscripción
-                </button>
-            </form>
-
-            <p id="resultadoInscripcion"></p>
-        </section>
-
     </main>
 
     <!-- Pie de página -->
@@ -277,9 +321,6 @@
             Correo: contacto@techeventscr.com<br>
             Costa Rica
         </address>
-        <button onclick="alert('Bienvenido a TechEvents CR')">
-            Probar JavaScript
-        </button>
         <ul>
             <li><a href="index.html">Volver al inicio</a></li>
             <li><a href="eventos.html">Ver eventos</a></li>
@@ -294,12 +335,8 @@
             <small>&copy; 2026 TechEvents CR. Todos los derechos reservados.</small>
         </p>
     </footer>
-    <!--<script >
-        console.log("JavaScript interno")
-        console.error("Error")
-    </script>
-    <script src="js/app.js"></script> -->
-    <script src="js/script2.js"></script>
+    <script src="js/eventsData.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
