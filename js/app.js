@@ -1,13 +1,30 @@
 const contenedorEventos = document.getElementById("contenedorEventos")
 const mensajeEventos = document.getElementById("mensajeEventos")
-
 const filtroCategoria = document.getElementById("filtroCategoria")
 const filtroModalidad = document.getElementById("filtroModalidad")
 const filtroEtiqueta = document.getElementById("filtroEtiqueta")
-
 const btnLimpiarFiltros = document.getElementById("btnLimpiarFiltros")
-
 const selectEventoInscripcion = document.getElementById("selectEventoInscripcion")
+const detalleEventoInscripcion = document.getElementById("detalleEventoInscripcion")
+const cantidadCupos = document.getElementById("cantidadCupos")
+const nombreParticipante = document.getElementById("nombreParticipante")
+const btnVistaPreviaInscripcion = document.getElementById("btnVistaPreviaInscripcion")
+const resumenInscripcion = document.getElementById("resumenInscripcion")
+
+selectEventoInscripcion.addEventListener(
+    "change",
+    mostrarDetalleSeleccionado
+)
+
+cantidadCupos.addEventListener(
+    "input",
+    mostrarDetalleSeleccionado
+)
+
+btnVistaPreviaInscripcion.addEventListener(
+    "click",
+    generarVistaPrevia
+)
 
 function calcularDisponibles(evento) {
     return evento.cuposTotales - evento.inscritos
@@ -93,7 +110,158 @@ function cargarEventos() {
         option.textContent = evento.nombre
         selectEventoInscripcion.appendChild(option)
     }
-    
+}
+
+function buscarEventoPorId(id) {
+    return eventos.find(function (evento) {
+        return evento.id == id
+    })
+}
+
+function mostrarDetalleSeleccionado() {
+
+    const idEvento = selectEventoInscripcion.value
+
+    if (idEvento === "") {
+
+        detalleEventoInscripcion.innerHTML = `
+            <div class="detail-empty">
+                <h3>Seleccione un evento</h3>
+                <p>
+                    Aquí se mostrará la información del evento seleccionado.
+                </p>
+            </div>
+        `
+        return
+    }
+
+    const evento = buscarEventoPorId(idEvento)
+
+    const disponibles = calcularDisponibles(evento)
+
+    const cantidadSolicitada =
+        Number(cantidadCupos.value)
+
+    const cuposRestantes =
+        disponibles - cantidadSolicitada
+
+    if (cantidadSolicitada > disponibles) {
+
+        detalleEventoInscripcion.style.opacity = "0.6"
+
+    } else {
+
+        detalleEventoInscripcion.style.opacity = "1"
+    }
+
+    detalleEventoInscripcion.innerHTML = `
+        <img src="${evento.imagen}"
+             alt="${evento.nombre}">
+
+        <div class="detail-content">
+
+            <h3>${evento.nombre}</h3>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Categoría</span>
+                    <strong>${evento.categoria}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Modalidad</span>
+                    <strong>${evento.modalidad}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Cupos Totales</span>
+                    <strong>${evento.cuposTotales}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Inscritos</span>
+                    <strong>${evento.inscritos}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Disponibles</span>
+                    <strong>${disponibles}</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Restarían</span>
+                    <strong>${cuposRestantes}</strong>
+                </div>
+
+            </div>
+
+            <div class="event-tags">
+                ${evento.etiquetas.map(function (etiqueta) {
+        return `<span>${etiqueta}</span>`
+    }).join("")}
+            </div>
+
+        </div>
+    `
+}
+
+function generarVistaPrevia() {
+
+    const idEvento =
+        selectEventoInscripcion.value
+
+    if (idEvento === "") {
+
+        resumenInscripcion.textContent =
+            "Debe seleccionar un evento."
+
+        return
+    }
+
+    const evento =
+        buscarEventoPorId(idEvento)
+
+    const disponibles =
+        calcularDisponibles(evento)
+
+    const solicitados =
+        Number(cantidadCupos.value)
+
+    const restantes =
+        disponibles - solicitados
+
+    const participante =
+        nombreParticipante.value
+
+    if (solicitados > disponibles) {
+
+        resumenInscripcion.className =
+            "registration-summary summary-warning"
+
+        resumenInscripcion.innerHTML = `
+            Participante: ${participante}<br>
+            Evento: ${evento.nombre}<br>
+            Cupos solicitados: ${solicitados}<br>
+            Cupos disponibles actuales: ${disponibles}<br>
+            Cupos restantes si continúa: ${restantes}<br>
+            Estado: No hay suficientes cupos para esta solicitud.
+        `
+
+    } else {
+
+        resumenInscripcion.className =
+            "registration-summary summary-success"
+
+        resumenInscripcion.innerHTML = `
+            Participante: ${participante}<br>
+            Evento: ${evento.nombre}<br>
+            Cupos solicitados: ${solicitados}<br>
+            Cupos disponibles actuales: ${disponibles}<br>
+            Cupos restantes si continúa: ${restantes}<br>
+            Estado: La inscripción puede continuar.
+        `
+    }
 }
 
 function crearTarjetaEvento(evento) {
@@ -126,8 +294,8 @@ function crearTarjetaEvento(evento) {
             </p>
             <div class="event-tags">
                 ${evento.etiquetas.map(function (etiqueta) {
-                    return `<span>${etiqueta}</span>`
-                }).join("")}
+        return `<span>${etiqueta}</span>`
+    }).join("")}
             </div>
         </div>
     `
